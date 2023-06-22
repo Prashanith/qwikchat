@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "32651169586",
+    "project_id": "qwikchat-007",
+    "storage_bucket": "qwikchat-007.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32651169586:android:de37093f90ceeb7da0512b",
+        "android_client_info": {
+          "package_name": "com.dev007.qwikchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32651169586-kb1cur8g97a0v9bdosm4jn2kbr1mpdo7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3iptVym_cUlHFsyjQNvQLKOxmAJEa3_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32651169586-kb1cur8g97a0v9bdosm4jn2kbr1mpdo7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

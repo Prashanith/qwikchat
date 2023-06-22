@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>802254033577-iiqigae4eim10imbfe44cq005fg1rbem.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.802254033577-iiqigae4eim10imbfe44cq005fg1rbem</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAA_JNOE6C-SD6cyL4XH6CJNgc1HR4jvyU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>802254033577</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dev007.qwikchat</string>
+	<key>PROJECT_ID</key>
+	<string>qwikchat007</string>
+	<key>STORAGE_BUCKET</key>
+	<string>qwikchat007.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:802254033577:ios:35ef7022cde1001f588fb8</string>
+</dict>
+</plist>
