@@ -5,7 +5,7 @@ class ResponsiveDesign {
   double getScreenHeight(BuildContext context, {bool excludePadding = true}) =>
       MediaQuery.of(context).size.height - (excludePadding ? 0 : 40);
   double getWidth(BuildContext context, {bool excludePadding = true}) =>
-      MediaQuery.of(context).size.width - (excludePadding ? 0 : 40);
+      MediaQuery.of(context).size.width - (excludePadding ? 0 : 60);
   double getHeight(BuildContext context, {bool excludePadding = true}) =>
       MediaQuery.of(context).size.height - (excludePadding ? 0 : 40);
 
@@ -26,7 +26,7 @@ class ResponsiveDesign {
       MediaQuery.of(context).size.height * 0.075;
 
   double spacerXl(BuildContext context) =>
-      MediaQuery.of(context).size.height * 0.01;
+      MediaQuery.of(context).size.height * 0.1;
 
   double spacerCustom(BuildContext context, double val) =>
       MediaQuery.of(context).size.height * val;

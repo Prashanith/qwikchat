@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:line_icons/line_icon.dart';
 
 import '../../controllers/mixin.dart';
-import '../../screens/user/chats.dart';
+import '../../screens/user/chat/chats.dart';
 import '../../screens/user/friends.dart';
 import '../../screens/user/profile.dart';
 import '../../screens/user/search.dart';
@@ -22,23 +22,28 @@ class _BottomNavScaffoldState extends State<BottomNavScaffold>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Image(
-          image: AssetImage('assets/comment.png'),
-          height: 30,
-          width: 30,
+        backgroundColor: context.theme.secondaryHeaderColor,
+
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 15),
+          child: Image.asset(
+            'assets/comment.png',
+            fit: BoxFit.scaleDown,
+            scale: 0.5,
+          ),
         ),
+        leadingWidth: 45,
         title: Text('Qwik Chat', style: context.theme.textTheme.bodyMedium),
-        centerTitle: true,
-        actions: [
-          IconButton(
-              onPressed: () => authController.signOut(),
-              icon: LineIcon.outdent())
-        ],
+        // actions: [
+        //   IconButton(
+        //       onPressed: () => authController.signOut(),
+        //       icon: LineIcon.alternateSignOut())
+        // ],
       ),
       body: [
-        const Chats(),
+        Chats(),
         const Friends(),
-        const SearchUsers(),
+        SearchUsers(),
         const UserProfile()
       ][currentIndex],
       bottomNavigationBar: BottomNavigationBar(

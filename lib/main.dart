@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'config/config.dart';
+import 'controllers/application.dart';
 import 'navigation/route_generator.dart';
 import 'services/init_services.dart';
 
@@ -11,6 +12,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await ServiceInitializer.initializeServices();
+  final ac = Get.put(ApplicationController());
+  await ac.postInitializationCalls();
   runApp(const MyApp());
 }
 
@@ -43,6 +46,12 @@ const BrandTheme lightBrandTheme = BrandTheme(
   brandColor: Color.fromARGB(255, 8, 79, 71),
 );
 
+const scheme = FlexSchemeColor(
+    primary: Color(0xff2196F3),
+    primaryContainer: Colors.black,
+    secondary: Colors.white,
+    tertiary: Color(0xff64B5F6));
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -52,16 +61,17 @@ class MyApp extends StatelessWidget {
       title: 'Qwik Chat',
       theme: FlexThemeData.light(
           useMaterial3: true,
-          appBarBackground: Colors.blue.shade900,
-          appBarStyle: FlexAppBarStyle.surface,
-          colors: FlexSchemeColor(
-              primary: Colors.blue.shade900,
-              secondary: Colors.blue.shade50,
-              tertiary: Colors.grey.shade500),
+          appBarBackground: Colors.white,
+          appBarElevation: 20,
+          appBarStyle: FlexAppBarStyle.background,
+          colors: scheme,
           lightIsWhite: false,
           textTheme: textTheme,
           platform: defaultTargetPlatform,
-          subThemesData: const FlexSubThemesData(
+          subThemesData: FlexSubThemesData(
+              outlinedButtonTextStyle:
+                  MaterialStatePropertyAll(textTheme.bodyMedium),
+              outlinedButtonSchemeColor: SchemeColor.primaryContainer,
               elevatedButtonSecondarySchemeColor: SchemeColor.primary,
               elevatedButtonSchemeColor: SchemeColor.secondary)),
       themeMode: ThemeMode.light,

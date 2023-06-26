@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/authentication/authenticate.dart';
 import '../screens/splash/init.dart';
+import '../screens/user/chat/chat.dart';
 import '../screens/user/user.dart';
 import 'routes.dart';
 
@@ -15,6 +16,8 @@ class RouteGenerator {
         return Page(const AuthenticationScreen());
       case Routes.user:
         return Page(const User());
+      case Routes.chatHead:
+        return Page(const ChatWindow());
       default:
         return Page(const AuthenticationScreen());
     }
