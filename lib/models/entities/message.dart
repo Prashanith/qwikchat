@@ -19,12 +19,12 @@ class Message {
   Map<String, dynamic> get json =>
       doc != null ? doc as Map<String, dynamic> : {};
 
-  String get senderId => json['sender'];
-  String get id => json['id'];
+  String get senderId => json['sender'] ?? '';
+  String get id => json['id'] ?? '';
   DateTime? get readAt =>
       json['readAt'] != null ? (json['readAt'] as Timestamp).toDate() : null;
   DateTime get sentAt => (json['sentAt'] as Timestamp).toDate();
-  String get message => json['message'];
+  String get message => json['message'] ?? '';
 
   static Map<String, dynamic> toJson(String sender, message) => {
         'id': const Uuid().v1(),

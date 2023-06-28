@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../controllers/mixin.dart';
 import '../../widgets/page_wrappers/bottom_nav_scaffold.dart';
-import '../../widgets/page_wrappers/plain_scaffold.dart';
 
 class User extends StatefulWidget {
   const User({super.key});

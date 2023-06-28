@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:line_icons/line_icon.dart';
 
 import '../../controllers/mixin.dart';
 import '../../services/init_services.dart';
 import '../../services/ui/responsive_design.dart';
+import '../../widgets/label_info_text_widget.dart';
 
 class UserProfile extends StatelessWidget with ControllersMixin {
   const UserProfile({super.key});
@@ -30,24 +30,31 @@ class UserProfile extends StatelessWidget with ControllersMixin {
               height: rd.spacerMd(context),
             ),
             LabelInfoWidget(
-                icon: LineIcon.user(),
-                value: authController.user.value!.displayName ?? ''),
+              icon: LineIcon.user(),
+              value: authController.user.value!.displayName ?? '',
+              label: 'Display Name',
+            ),
             SizedBox(
               height: rd.spacerSm(context),
             ),
             LabelInfoWidget(
-                icon: LineIcon.envelope(),
-                value: authController.user.value!.email ?? ''),
+              icon: LineIcon.envelope(),
+              value: authController.user.value!.email ?? '',
+              label: 'Email',
+            ),
             SizedBox(
               height: rd.spacerSm(context),
             ),
             LabelInfoWidget(
-                icon: LineIcon.phone(),
-                value: authController.user.value!.phoneNumber ?? ''),
+              icon: LineIcon.phone(),
+              value: authController.user.value!.phoneNumber ?? '',
+              label: 'Mobile Number',
+            ),
             SizedBox(
               height: rd.spacerSm(context),
             ),
             LabelInfoWidget(
+                label: 'Active Since',
                 icon: LineIcon.times(),
                 value: authController.user.value!.metadata.creationTime
                         ?.toLocal()
@@ -57,6 +64,7 @@ class UserProfile extends StatelessWidget with ControllersMixin {
               height: rd.spacerSm(context),
             ),
             LabelInfoWidget(
+                label: 'Last Sign Time',
                 icon: LineIcon.envelope(),
                 value: authController.user.value!.metadata.lastSignInTime
                         ?.toLocal()
@@ -69,27 +77,4 @@ class UserProfile extends StatelessWidget with ControllersMixin {
   }
 }
 
-class LabelInfoWidget extends StatelessWidget {
-  const LabelInfoWidget({super.key, required this.icon, required this.value});
 
-  final Icon icon;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = context.textTheme;
-    return Row(
-      children: [
-        icon,
-        const SizedBox(
-          width: 20,
-        ),
-        Text(
-          value.isNotEmpty ? value: '--',
-          style: theme.bodyMedium
-              ?.merge(const TextStyle(fontWeight: FontWeight.w600)),
-        )
-      ],
-    );
-  }
-}

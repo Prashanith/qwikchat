@@ -5,7 +5,7 @@ TextStyle textStyle = const TextStyle(
   fontWeight: FontWeight.normal,
 );
 
-TextTheme textTheme = GoogleFonts.acmeTextTheme(TextTheme(
+TextTheme textTheme = GoogleFonts.ubuntuTextTheme(TextTheme(
   displayLarge: textStyle.merge(const TextStyle(fontSize: 36)),
   displayMedium: textStyle.merge(const TextStyle(fontSize: 32)),
   displaySmall: textStyle.merge(const TextStyle(fontSize: 30)),

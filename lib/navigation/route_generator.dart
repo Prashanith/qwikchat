@@ -24,6 +24,7 @@ class RouteGenerator {
   }
 }
 
+// ignore: non_constant_identifier_names
 Route<dynamic> Page(Widget widget) {
   return MaterialPageRoute(builder: (_) => widget);
 }

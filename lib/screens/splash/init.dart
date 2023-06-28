@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import '../../main.dart';
 import '../../navigation/route_generator.dart';
-import '../../navigation/routes.dart';
 import '../../services/init_services.dart';
+import '../../services/local_storage.dart';
 import '../../services/ui/responsive_design.dart';
 import '../../widgets/page_wrappers/plain_scaffold.dart';
 
@@ -16,42 +18,64 @@ class InitScreen extends StatelessWidget {
     return PlainScaffold(
       removePadding: true,
       widget: SingleChildScrollView(
-        child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Image.asset(
-                'assets/init.png',
-                width: rd.getWidth(context, excludePadding: true),
-              ),
-              Container(
-                padding: rd.getPadding(context),
-                constraints: BoxConstraints(
-                    minHeight:
-                        rd.getScreenHeight(context, excludePadding: true) *
-                            0.5),
-                child: Column(
+        child: Container(
+          color: darkScheme.primary,
+          padding: rd.getPadding(context),
+          child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SvgPicture.asset(
+                  'assets/init_bg.svg',
+                  width: rd.getWidth(context, excludePadding: true),
+                ),
+                Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     SizedBox(
                       height: rd.spacerCustom(context, 0.1),
                     ),
-                    const Text(
-                        'Enjoy the new experience of chatting with global friends'),
-                    const Text('Connection Redefined'),
+                    Text(
+                      'Enjoy the new experience of chatting with global friends',
+                      style: context.textTheme.bodyLarge?.merge(const TextStyle(
+                        fontWeight: FontWeight.w700,
+                      )),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      'Connection Redefined',
+                      style: context.textTheme.bodyLarge?.merge(TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey.shade700)),
+                      textAlign: TextAlign.center,
+                    ),
                     SizedBox(
                       height: rd.spacerCustom(context, 0.1),
                     ),
                     ElevatedButton(
-                        onPressed: () =>
-                            router.navigator.currentState?.pushNamed('/login'),
-                        child: const Text('Get Started'))
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5000)
+                          )
+                        ),
+                        onPressed: () async {
+                          var s = locator<LocalStorage>();
+                          await s.setValue('isFirstInstall', false);
+                          router.navigator.currentState?.pushNamed('/login');
+                        },
+                        child: Text(
+                          'Get Started',
+                          style: context.textTheme.titleSmall!
+                              .merge(const TextStyle(color: Colors.white)),
+                        ))
                   ],
                 ),
-              ),
-            ]),
+              ]),
+        ),
       ),
     );
   }

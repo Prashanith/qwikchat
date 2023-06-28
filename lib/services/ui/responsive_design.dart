@@ -11,7 +11,7 @@ class ResponsiveDesign {
 
   EdgeInsetsGeometry getPadding(BuildContext context,
           {bool excludePadding = true}) =>
-      const EdgeInsets.symmetric(vertical: 20, horizontal: 30);
+      const EdgeInsets.symmetric(vertical: 20, horizontal: 20);
 
   double spacerXs(BuildContext context) =>
       MediaQuery.of(context).size.height * 0.015;

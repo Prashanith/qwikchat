@@ -1,13 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SearchUser {
-  SearchUser(this.doc);
+  SearchUser(this.doc, this.docId);
 
-  final QueryDocumentSnapshot doc;
+  final Object? doc;
+  final String docId;
 
-  String get docId => doc.id;
   Map<String, dynamic> get json =>
-      doc.data() != null ? doc.data() as Map<String, dynamic> : {};
+      doc != null ? doc as Map<String, dynamic> : {};
 
   String get displayName => json['displayName'];
   String get id => json['id'];

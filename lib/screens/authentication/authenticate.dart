@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../controllers/mixin.dart';
 import '../../services/init_services.dart';
@@ -17,11 +16,11 @@ class AuthenticationScreen extends StatelessWidget with ControllersMixin {
     final auth = authController;
 
     return PlainScaffold(
-        widget: Container(
+        widget: SizedBox(
       height: rd.getScreenHeight(context),
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.fitHeight, image: AssetImage('assets/loginbg.png'))),
+      // decoration: const BoxDecoration(
+      //     image: DecorationImage(
+      //         fit: BoxFit.fitHeight, image: AssetImage('assets/loginbg.png'))),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -49,13 +48,16 @@ class AuthenticationScreen extends StatelessWidget with ControllersMixin {
             ),
             Text(
               'A secure place to connect',
-              style: context.textTheme.bodyLarge?.merge(GoogleFonts.acme(
-                  textStyle: const TextStyle(fontWeight: FontWeight.w600))),
+              style: context.textTheme.bodyLarge
+                  ?.merge(const TextStyle(fontWeight: FontWeight.w600)),
             ),
             SizedBox(
               height: rd.spacerSm(context),
             ),
             OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 4, horizontal: 20)),
               onPressed: () {
                 auth.signInWithGoogle();
               },

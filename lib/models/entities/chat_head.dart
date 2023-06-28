@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import 'message.dart';
 
 class ChatHead {
@@ -26,22 +28,22 @@ class ChatHead {
   String get id => json['id'] ?? '';
   String get photoUrl => _imageUrl ?? '';
 
-  // void setMessages(Map<> messages){
-  //   _messages =
-  //
-  // }
   List<Message> get getMessages => _messages;
 
   void addMessage(Message message) {
     if (_messages.any((e) => e.id == message.id)) {
-      print('Existing');
       return;
     }
     _messages.add(message);
   }
 
   void addMessages(List<Message> messages) {
-    _messages.addAll(messages);
-    _messages.sort((a, b) => a.sentAt.compareTo(b.sentAt));
+    for (int i = 0; i < messages.length; i++) {
+      _messages.addIf(
+          _messages
+              .every((element) => element.documentId != messages[i].documentId),
+          messages[i]);
+    }
+    _messages.sort((a, b) => b.sentAt.compareTo(a.sentAt));
   }
 }
